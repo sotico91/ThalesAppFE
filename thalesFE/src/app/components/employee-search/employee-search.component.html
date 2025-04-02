@@ -1,0 +1,53 @@
+<div class="employee-search-container">
+  <h2>Employee Search</h2>
+  
+  <div class="search-form">
+    <input 
+      type="text" 
+      [(ngModel)]="employeeId" 
+      placeholder="Enter Employee ID" 
+      class="employee-id-input">
+    
+    <button 
+      (click)="searchEmployee()" 
+      class="search-button">
+      Search Employee
+    </button>
+  </div>
+  
+  <div *ngIf="loading" class="loading">
+    Loading...
+  </div>
+  
+  <div *ngIf="error" class="error-message">
+    {{ error }}
+  </div>
+  
+  <div *ngIf="employees.length > 0" class="results-container">
+    <h3>Employee Results</h3>
+    <table class="employee-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Monthly Salary</th>
+          <th>Annual Salary</th>
+          <!-- Add more columns as needed -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees">
+          <td>{{ employee.id }}</td>
+          <td>{{ employee.name }}</td>
+          <td>{{ employee.salary | currency }}</td>
+          <td>{{ employee.employee_anual_salary | currency }}</td>
+          <!-- Add more fields as needed -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div *ngIf="!loading && employees.length === 0 && !error" class="no-results">
+    No employees found.
+  </div>
+</div>

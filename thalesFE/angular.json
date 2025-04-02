@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "employee-view": {
+    "thalesFE": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/employee-view",
+            "outputPath": "dist/thales-fe",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -27,14 +27,13 @@
               }
             ],
             "styles": [
-              "src/custom-theme.scss",
               "src/styles.css"
             ],
             "scripts": [],
             "server": "src/main.server.ts",
-            "prerender": true,
+            "outputMode": "server",
             "ssr": {
-              "entry": "server.ts"
+              "entry": "src/server.ts"
             }
           },
           "configurations": {
@@ -47,8 +46,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kB",
-                  "maximumError": "4kB"
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
                 }
               ],
               "outputHashing": "all"
@@ -65,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "employee-view:build:production"
+              "buildTarget": "thalesFE:build:production"
             },
             "development": {
-              "buildTarget": "employee-view:build:development"
+              "buildTarget": "thalesFE:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -91,7 +90,6 @@
               }
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -101,6 +99,6 @@
     }
   },
   "cli": {
-    "analytics": "f94a00d1-bd48-488c-a1ed-ad78cf0d7f2e"
+    "analytics": "dfbf0038-0d4e-4f1d-bf99-f0381ddac2b2"
   }
 }
