@@ -1,53 +1,55 @@
-<div class="employee-search-container">
+<div class="container mt-4">
   <h2>Employee Search</h2>
   
-  <div class="search-form">
-    <input 
-      type="text" 
-      [(ngModel)]="employeeId" 
-      placeholder="Enter Employee ID" 
-      class="employee-id-input">
-    
-    <button 
-      (click)="searchEmployee()" 
-      class="search-button">
-      Search Employee
-    </button>
+  <div class="mb-3">
+    <div class="input-group">
+      <input 
+        type="text" 
+        class="form-control" 
+        placeholder="Enter employee ID" 
+        [(ngModel)]="employeeId"
+      >
+      <button 
+        class="btn btn-primary" 
+        (click)="searchEmployee()"
+      >
+        Search
+      </button>
+    </div>
   </div>
   
-  <div *ngIf="loading" class="loading">
-    Loading...
+  <div *ngIf="loading" class="text-center">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
   </div>
   
-  <div *ngIf="error" class="error-message">
+  <div *ngIf="error" class="alert alert-danger">
     {{ error }}
   </div>
   
-  <div *ngIf="employees.length > 0" class="results-container">
-    <h3>Employee Results</h3>
-    <table class="employee-table">
+  <div *ngIf="employees.length > 0 && !loading" class="table-responsive">
+    <table class="table table-striped">
       <thead>
         <tr>
-          <th>ID</th>
+          <th>Age</th>
           <th>Name</th>
-          <th>Monthly Salary</th>
+          <th>Salary</th>
           <th>Annual Salary</th>
-          <!-- Add more columns as needed -->
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let employee of employees">
-          <td>{{ employee.id }}</td>
-          <td>{{ employee.name }}</td>
-          <td>{{ employee.salary | currency }}</td>
-          <td>{{ employee.employee_anual_salary | currency }}</td>
-          <!-- Add more fields as needed -->
+          <td>{{ employee.employee_age }}</td>
+          <td>{{ employee.employee_name }}</td>
+          <td>{{ employee.employee_salary | currency }}</td>
+          <td>{{ employee.annualSalary | currency }}</td>
         </tr>
       </tbody>
     </table>
   </div>
   
-  <div *ngIf="!loading && employees.length === 0 && !error" class="no-results">
+  <div *ngIf="employees.length === 0 && !loading && !error" class="alert alert-info">
     No employees found.
   </div>
 </div>

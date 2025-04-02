@@ -3,10 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface Employee {
-  id: number;
-  name: string;
-  salary: number;
-  employee_anual_salary?: number;
+  employee_name: string;
+  employee_salary: number;
+  employee_age: number;
+  annualSalary: number;
   // Add other employee properties as needed
 }
 

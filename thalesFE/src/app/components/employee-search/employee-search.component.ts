@@ -40,8 +40,8 @@ export class EmployeeSearchComponent implements OnInit {
 
     this.employeeService.getEmployeeById(id).subscribe({
       next: (employee) => {
-        // Calculate annual salary
-        this.employees = [this.calculateAnnualSalary(employee)];
+        // The API already provides annualSalary, no need to calculate
+        this.employees = [employee];
         this.loading = false;
       },
       error: (err) => {
@@ -56,8 +56,8 @@ export class EmployeeSearchComponent implements OnInit {
     this.loading = true;
     this.employeeService.getEmployees().subscribe({
       next: (employees) => {
-        // Calculate annual salary for each employee
-        this.employees = employees.map(emp => this.calculateAnnualSalary(emp));
+        // The API already provides annualSalary, no need to calculate
+        this.employees = employees;
         this.loading = false;
       },
       error: (err) => {
@@ -65,12 +65,5 @@ export class EmployeeSearchComponent implements OnInit {
         this.loading = false;
       }
     });
-  }
-
-  private calculateAnnualSalary(employee: Employee): Employee {
-    return {
-      ...employee,
-      employee_anual_salary: employee.salary * 12
-    };
   }
 }
