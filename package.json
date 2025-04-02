@@ -1,0 +1,14 @@
+{
+  "name": "package.json",
+  "version": "1.0.0",
+  "main": "fdd",
+  "scripts": {
+    "test": "d"
+  },
+  "keywords": [
+    "s"
+  ],
+  "author": "d",
+  "license": "ISC",
+  "description": ""
+}
