@@ -11,5 +11,5 @@ import { EmployeeSearchComponent } from './components/employee-search/employee-s
   imports: [CommonModule, RouterOutlet, EmployeeSearchComponent]
 })
 export class AppComponent {
-  title = 'thalesFE';
+  title = 'thales';
 }

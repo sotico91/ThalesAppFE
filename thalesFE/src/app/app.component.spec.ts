@@ -24,6 +24,16 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, thalesFE');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, thales');
+  });
+  
+  it('should display the Thales logo', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    const logoImg = compiled.querySelector('img[alt="Thales Logo"]');
+    expect(logoImg).toBeTruthy();
+    // Check that the src attribute is set correctly
+    expect(logoImg?.getAttribute('src')).toContain('assets/thales-logo.png');
   });
 });
