@@ -56,7 +56,6 @@ export class EmployeeSearchComponent implements OnInit {
     this.loading = true;
     this.employeeService.getEmployees().subscribe({
       next: (employees) => {
-        // The API already provides annualSalary, no need to calculate
         this.employees = employees;
         this.loading = false;
       },

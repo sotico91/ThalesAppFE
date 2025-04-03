@@ -33,7 +33,6 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     const logoImg = compiled.querySelector('img[alt="Thales Logo"]');
     expect(logoImg).toBeTruthy();
-    // Check that the src attribute is set correctly
     expect(logoImg?.getAttribute('src')).toContain('assets/thales-logo.png');
   });
 });

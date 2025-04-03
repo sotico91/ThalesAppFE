@@ -7,7 +7,6 @@ export interface Employee {
   employee_salary: number;
   employee_age: number;
   annualSalary: number;
-  // Add other employee properties as needed
 }
 
 @Injectable({
